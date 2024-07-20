@@ -27,3 +27,5 @@ Imports:
     utils
 LazyData: true
 LazyDataCompression: xz
+URL: https://github.com/AzuleneG/SCFMonitor
+BugReports: https://github.com/AzuleneG/SCFMonitor/issues
