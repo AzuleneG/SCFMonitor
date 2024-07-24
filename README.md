@@ -32,5 +32,27 @@ This is a basic example which shows how to monitor a SCF convergence
 process:
 
 ``` r
-  #hama hama
+  library(SCFMonitor)
+  
+  MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample())
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_line()`).
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
+  OptiSCFConvergenceRoundMonitor(SCFMonitorExample())
+#> `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+#> Warning: Removed 1 row containing non-finite outside the scale range (`stat_smooth()`).
+#> Removed 1 row containing missing values or values outside the scale range
+#> (`geom_line()`).
+```
+
+<img src="man/figures/README-example-2.png" width="100%" />
+
+``` r
+  OptiConvergenceMonitor(SCFMonitorExample())
+```
+
+<img src="man/figures/README-example-3.png" width="100%" />
