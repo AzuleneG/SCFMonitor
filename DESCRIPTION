@@ -2,7 +2,7 @@ Package: SCFMonitor
 Title: Clear monitor and graphing software processing Gaussian .log file
 Version: 0.3.1.0000
 Authors@R: 
-    person("Pengjun", "Guo", , "pengjun.guo@example.com", role = c("aut", "cre"),
+    person("Pengjun", "Guo", , "pengjun.guo@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0007-2717-0519"))
 Description: SCFMonitor enables Gaussian the quantum chemistry calculation software users to easily read the Gaussian .log files and monitor the SCF convergence and geometry optimization process with little effort and clear, beautiful and clean outputs. It can generate graphs using tidyverse to let users check SCF convergence and geometry optimization process real time. The software supports processing .log files remotely using with rbase::url(). This software is a suitcase for saving time and energy for the researchers, supporting multiple versions of Gaussian.
 License: MIT + file LICENSE
@@ -12,19 +12,16 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 Imports: 
-    dplyr,
     readr,
-    forcats,
     stringr,
-    ggplot2,
+    tidyselect,
+    dplyr,
     tibble,
-    lubridate,
+    utils,
+    ggplot2,
     tidyr,
-    purrr,
     magrittr,
     rlang,
-    tibble,
-    utils
 LazyData: true
 LazyDataCompression: xz
 URL: https://github.com/AzuleneG/SCFMonitor

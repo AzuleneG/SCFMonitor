@@ -1,24 +1,48 @@
+#' Read and Plot the Optimization Process of a Gaussian Log File.
+#'
+#' This function reads a log file automatically and shows the optimization convergence process of it by generating line plots
+#' @param directory A string vector describing the directory of the Gaussian log file.
+#' @importFrom readr read_file
+#' @importFrom stringr str_split str_detect str_trim str_replace str_sub
+#' @importFrom tidyselect starts_with
+#' @importFrom dplyr rename filter mutate row_number select
+#' @importFrom tibble as_tibble
+#' @importFrom ggplot2 ggplot aes geom_line geom_point geom_hline theme_minimal
+#' @export
+#' @examples
+#' library(readr)
+#' library(stringr)
+#' library(tidyselect)
+#' library(dplyr)
+#' library(tibble)
+#' library(ggplot2)
+#'
+#' OptiConvergenceMonitor(SCFMonitorExample())
+#' 
+#' @name OptiConvergenceMonitor
+
+
 OptiConvergenceMonitor <- function(directory) {
-  Glog <- read_file(directory) %>%
-    str_split("\n") %>%
+  Glog <- readr::read_file(directory) %>%
+    stringr::str_split("\n") %>%
     as.data.frame() %>%
-    as_tibble() %>%
-    rename(rawdat = starts_with("c")) %>%
-    filter(
-      str_detect(rawdat, "^ Maximum Displacement") |
-        str_detect(rawdat, "^ Maximum Force") |
-        str_detect(rawdat, "^ RMS     Force") |
-        str_detect(rawdat, "^ RMS     Displacement")
+    tibble::as_tibble() %>%
+    dplyr::rename(rawdat = tidyselect::starts_with("c")) %>%
+    dplyr::filter(
+      stringr::str_detect(rawdat, "^ Maximum Displacement") |
+        stringr::str_detect(rawdat, "^ Maximum Force") |
+        stringr::str_detect(rawdat, "^ RMS     Force") |
+        stringr::str_detect(rawdat, "^ RMS     Displacement")
     ) %>%
-    mutate(rawdat = str_trim(rawdat))
+    dplyr::mutate(rawdat = stringr::str_trim(rawdat))
   
   Glog <- Glog %>%
-    mutate(
-      OptiType = str_replace(str_replace(str_trim(
-        str_sub(rawdat, 1, 21)), "    ", " "), "  ", " "),
-      value = as.numeric(str_trim(str_sub(rawdat, 26, 34))),
-      cycle = as.numeric(floor((row_number() - 1) / 4) + 1),
-      thereshold = as.numeric(str_sub(rawdat, 39, 47))
+    dplyr::mutate(
+      OptiType = stringr::str_replace(stringr::str_replace(stringr::str_trim(
+        stringr::str_sub(rawdat, 1, 21)), "    ", " "), "  ", " "),
+      value = as.numeric(stringr::str_trim(stringr::str_sub(rawdat, 26, 34))),
+      cycle = as.numeric(floor((dplyr::row_number() - 1) / 4) + 1),
+      thereshold = as.numeric(stringr::str_sub(rawdat, 39, 47))
     ) %>%
     dplyr::select(-rawdat)
   
@@ -27,32 +51,32 @@ OptiConvergenceMonitor <- function(directory) {
   mD <- Glog$thereshold[3]
   rmsD <- Glog$thereshold[4]
   
-  ggplot(data = Glog,
-         mapping = aes(
+  ggplot2::ggplot(data = Glog,
+         mapping = ggplot2::aes(
            x = cycle,
            y = -log10(value),
            color = OptiType
-         )) + geom_line() + geom_point(size = 0.5) +
-    geom_hline(
+         )) + ggplot2::geom_line() + ggplot2::geom_point(size = 0.5) +
+    ggplot2::geom_hline(
       yintercept = -log10(mD),
       color = "#F8766D" ,
       linewidth = 0.8
     ) +
-    geom_hline(
+    ggplot2::geom_hline(
       yintercept = -log10(mF),
       color = "#00BA38",
       linewidth = 0.8
     ) +
-    geom_hline(
+    ggplot2::geom_hline(
       yintercept = -log10(rmsD),
       color = "#00BFC4",
       linewidth = 0.8
     ) +
-    geom_hline(
+    ggplot2::geom_hline(
       yintercept = -log10(rmsF),
       color = "#C77CFF",
       linewidth = 0.8
     ) +
-    theme_minimal()
+    ggplot2::theme_minimal()
   
 }
