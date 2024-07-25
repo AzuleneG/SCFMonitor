@@ -34,6 +34,7 @@ process:
 ``` r
   library(SCFMonitor)
   
+  #Generate the plots
   MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample())
 #> Warning: Removed 1 row containing missing values or values outside the scale range
 #> (`geom_line()`).

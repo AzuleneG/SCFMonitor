@@ -8,6 +8,7 @@
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr mutate filter
 #' @importFrom stringr str_replace
+#' @importFrom magrittr %>%
 #' @importFrom ggplot2 ggplot aes geom_line geom_hline theme_minimal facet_wrap
 #' @export
 #' @examples

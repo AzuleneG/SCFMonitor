@@ -34,6 +34,8 @@ devtools::install_github("AzuleneG/SCFMonitor")
 This is a basic example which shows how to monitor a SCF convergence process:
 
 ```{r example}
+  library(SCFMonitor)
+  
   MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample())
   OptiSCFConvergenceRoundMonitor(SCFMonitorExample())
   OptiConvergenceMonitor(SCFMonitorExample())

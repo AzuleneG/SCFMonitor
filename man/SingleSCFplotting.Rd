@@ -20,7 +20,7 @@ library(stringr)
 library(ggplot2)
 library(tidyr)
 
-temp_dat = OptiSCFMonitorAsList(SCFMonitorExample())[[1]]
-SingleSCFplotting(temp_dat[[5]], SCFconver = -log10(temp_dat[[2]]))
+temp_dat = OptiSCFMonitorAsList(SCFMonitorExample())
+SingleSCFplotting(temp_dat[[1]][[5]], SCFconver = -log10(temp_dat[[2]]))
 
 }
