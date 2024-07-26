@@ -3,9 +3,6 @@
 \name{OptiSCFMonitorAsList}
 \alias{OptiSCFMonitorAsList}
 \title{Form a list Containing SCF Data of Each Optimization Cycles}
-\usage{
-OptiSCFMonitorAsList(directory)
-}
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 }

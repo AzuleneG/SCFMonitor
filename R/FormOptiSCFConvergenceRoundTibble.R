@@ -20,6 +20,8 @@
 #' 
 #' @name FormOptiSCFConvergenceRoundTibble
 
+utils::globalVariables(names = c("CR", "rawdat", "OptiRounds"), package = "SCFMonitor")
+
 FormOptiSCFConvergenceRoundTibble <- function(directory) {
   Glog <- readr::read_file(directory) %>%
     stringr::str_split("\n") %>%

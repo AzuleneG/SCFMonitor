@@ -57,3 +57,7 @@ process:
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
+
+When using with the real log files, please replace `SCFMonitorExample()`
+to the directory of the .log file. For example,
+`"~/GaussianJobs/opti/job.log"`

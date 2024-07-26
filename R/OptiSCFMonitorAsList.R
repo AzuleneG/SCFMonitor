@@ -22,6 +22,8 @@
 #' 
 #' @name OptiSCFMonitorAsList
 
+utils::globalVariables(names = c("rawdat", "rowid", "RMSDP", "MaxDP", "DE", "OVMax"), package = "SCFMonitor")
+
 OptiSCFMonitorAsList <- function(directory) {
   Glog <- readr::read_file(directory) %>%
     stringr::str_split("\n") %>%

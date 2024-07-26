@@ -1,6 +1,6 @@
 Package: SCFMonitor
 Title: Clear monitor and graphing software processing Gaussian .log file
-Version: 0.3.1.0000
+Version: 0.3.2.0000
 Authors@R: 
     person("Pengjun", "Guo", , "pengjun.guo@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0007-2717-0519"))
@@ -20,8 +20,7 @@ Imports:
     utils,
     ggplot2,
     tidyr,
-    magrittr,
-    rlang,
+    magrittr
 LazyData: true
 LazyDataCompression: xz
 URL: https://github.com/AzuleneG/SCFMonitor

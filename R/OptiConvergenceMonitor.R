@@ -21,6 +21,7 @@
 #' 
 #' @name OptiConvergenceMonitor
 
+utils::globalVariables(names = c("rawdat", "cycle", "value", "OptiType"), package = "SCFMonitor")
 
 OptiConvergenceMonitor <- function(directory) {
   Glog <- readr::read_file(directory) %>%

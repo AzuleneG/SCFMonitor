@@ -3,9 +3,6 @@
 \name{OptiSCFConvergenceRoundMonitor}
 \alias{OptiSCFConvergenceRoundMonitor}
 \title{Read and Plot the Counts the SCF Convergence Rounds of Each Optimization Step of a Gaussian Log File.}
-\usage{
-OptiSCFConvergenceRoundMonitor(directory)
-}
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 }

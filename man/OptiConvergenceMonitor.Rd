@@ -3,9 +3,6 @@
 \name{OptiConvergenceMonitor}
 \alias{OptiConvergenceMonitor}
 \title{Read and Plot the Optimization Process of a Gaussian Log File.}
-\usage{
-OptiConvergenceMonitor(directory)
-}
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 }

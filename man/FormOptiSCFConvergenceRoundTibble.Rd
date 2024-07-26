@@ -3,9 +3,6 @@
 \name{FormOptiSCFConvergenceRoundTibble}
 \alias{FormOptiSCFConvergenceRoundTibble}
 \title{Form a Tibble of Total SCF Rounds in the Optimization Cycles}
-\usage{
-FormOptiSCFConvergenceRoundTibble(directory)
-}
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 }

@@ -11,6 +11,8 @@
 #' 
 #' @name OptiSCFConvergenceRoundMonitor
 
+utils::globalVariables(names = c("OptiRounds", "CR"), package = "SCFMonitor")
+
 OptiSCFConvergenceRoundMonitor <- function(directory) {
   ggplot(data = FormOptiSCFConvergenceRoundTibble(directory),
          mapping = ggplot2::aes(x = OptiRounds,

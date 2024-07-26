@@ -11,6 +11,8 @@
 #' 
 #' @name MultipleRoundOptiSCFIntegratedMonitor
 
+utils::globalVariables(names = c("SCFConver", "BOT", "TOP"), package = "SCFMonitor")
+
 MultipleRoundOptiSCFIntegratedMonitor <-
   function(directory , top_rounds=-1) {
     if(top_rounds == -1){

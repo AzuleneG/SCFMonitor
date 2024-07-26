@@ -3,9 +3,6 @@
 \name{OptiSCFMonitorAsWholeTibble}
 \alias{OptiSCFMonitorAsWholeTibble}
 \title{Form a Tibble of SCF data for each Optimization Steps}
-\usage{
-OptiSCFMonitorAsWholeTibble(directory)
-}
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 }

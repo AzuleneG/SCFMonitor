@@ -3,9 +3,6 @@
 \name{MultipleRoundOptiSCFIntegratedMonitor}
 \alias{MultipleRoundOptiSCFIntegratedMonitor}
 \title{Read and Plot SCF Convergence Process for Multiple Round of Optimization}
-\usage{
-MultipleRoundOptiSCFIntegratedMonitor(directory, top_rounds = -1)
-}
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 

@@ -22,6 +22,8 @@
 #' 
 #' @name OptiSCFMonitorAsWholeTibble
 
+utils::globalVariables(names = c("OptiCycle"), package = "SCFMonitor")
+
 OptiSCFMonitorAsWholeTibble <- function(directory) {
   Glog <- read_file(directory) %>%
     stringr::str_split("\n") %>%
