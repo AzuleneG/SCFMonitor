@@ -4,6 +4,8 @@
 # SCFMonitor
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/AzuleneG/SCFMonitor/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AzuleneG/SCFMonitor/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of SCFMonitor is to enable **Gaussian** the quantum chemistry
