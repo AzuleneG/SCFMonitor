@@ -14,9 +14,9 @@
 #' library(ggplot2)
 #' library(tidyr)
 #'
-#' temp_dat = OptiSCFMonitorAsList(SCFMonitorExample())
+#' temp_dat <- OptiSCFMonitorAsList(SCFMonitorExample())
 #' SingleSCFplotting(temp_dat[[1]][[5]], SCFconver = -log10(temp_dat[[2]]))
-#' 
+#'
 #' @name SingleSCFplotting
 
 utils::globalVariables(names = c("cycle", "valueT", "value", "SCFdatType"), package = "SCFMonitor")
@@ -25,19 +25,22 @@ SingleSCFplotting <- function(SCFData, SCFconver) {
   SCFData <- SCFData %>%
     tidyr::pivot_longer(!cycle, names_to = "SCFdatType", values_to = "valueT") %>%
     dplyr::mutate(value = as.numeric(stringr::str_replace(valueT, "D", "E")))
-  
-  ggplot2::ggplot(data = SCFData,
-         mapping = ggplot2::aes(
-           x = cycle,
-           y = -log10(abs(value)),
-           color = SCFdatType
-         )) + ggplot2::geom_line() +
+
+  ggplot2::ggplot(
+    data = SCFData,
+    mapping = ggplot2::aes(
+      x = cycle,
+      y = -log10(abs(value)),
+      color = SCFdatType
+    )
+  ) +
+    ggplot2::geom_line() +
     ggplot2::geom_hline(
       yintercept = SCFconver - 2 + 0.03,
       color = "#F8766D",
       linewidth = 1.05
     ) +
-    ggplot2::geom_hline(yintercept = SCFconver - 2 , color = "#00BA38") +
-    ggplot2::geom_hline(yintercept = SCFconver , color = "#C77CFF") +
+    ggplot2::geom_hline(yintercept = SCFconver - 2, color = "#00BA38") +
+    ggplot2::geom_hline(yintercept = SCFconver, color = "#C77CFF") +
     ggplot2::theme_minimal()
 }

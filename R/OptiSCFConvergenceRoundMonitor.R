@@ -8,15 +8,19 @@
 #' library(ggplot2)
 #'
 #' OptiSCFConvergenceRoundMonitor(SCFMonitorExample())
-#' 
+#'
 #' @name OptiSCFConvergenceRoundMonitor
 
 utils::globalVariables(names = c("OptiRounds", "CR"), package = "SCFMonitor")
 
 OptiSCFConvergenceRoundMonitor <- function(directory) {
-  ggplot(data = FormOptiSCFConvergenceRoundTibble(directory),
-         mapping = ggplot2::aes(x = OptiRounds,
-                       y = CR)) +
+  ggplot(
+    data = FormOptiSCFConvergenceRoundTibble(directory),
+    mapping = ggplot2::aes(
+      x = OptiRounds,
+      y = CR
+    )
+  ) +
     geom_line() +
     geom_smooth() +
     theme_minimal()

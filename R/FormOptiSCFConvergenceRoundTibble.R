@@ -17,7 +17,7 @@
 #' library(tibble)
 #'
 #' FormOptiSCFConvergenceRoundTibble(SCFMonitorExample())
-#' 
+#'
 #' @name FormOptiSCFConvergenceRoundTibble
 
 utils::globalVariables(names = c("CR", "rawdat", "OptiRounds"), package = "SCFMonitor")
@@ -29,11 +29,11 @@ FormOptiSCFConvergenceRoundTibble <- function(directory) {
     tibble::as_tibble() %>%
     dplyr::rename(rawdat = tidyselect::starts_with("c")) %>%
     dplyr::filter(stringr::str_detect(rawdat, "RMSDP=") |
-             stringr::str_detect(rawdat, " Cycle   1  ")) %>%
+      stringr::str_detect(rawdat, " Cycle   1  ")) %>%
     dplyr::mutate(CR = dplyr::row_number()) %>%
     dplyr::mutate(rawdat = stringr::str_trim(rawdat))
-  
-  filter(Glog, stringr::str_detect(rawdat , "^Cycle")) %>%
+
+  filter(Glog, stringr::str_detect(rawdat, "^Cycle")) %>%
     dplyr::select(CR) %>%
     dplyr::add_row(CR = nrow(Glog)) %>%
     dplyr::mutate(OptiRounds = dplyr::row_number()) %>%

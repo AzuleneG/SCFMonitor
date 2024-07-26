@@ -19,7 +19,7 @@
 #' library(tibble)
 #'
 #' OptiSCFMonitorAsWholeTibble(SCFMonitorExample())
-#' 
+#'
 #' @name OptiSCFMonitorAsWholeTibble
 
 utils::globalVariables(names = c("OptiCycle"), package = "SCFMonitor")
@@ -30,21 +30,21 @@ OptiSCFMonitorAsWholeTibble <- function(directory) {
     as.data.frame() %>%
     tibble::as_tibble() %>%
     dplyr::rename(rawdat = tidyselect::starts_with("c"))
-  
-  ConverStandard <- utils::head(filter(Glog, stringr::str_detect(rawdat,"Requested convergence on RMS density matrix=")), n=1L) %>%
+
+  ConverStandard <- utils::head(filter(Glog, stringr::str_detect(rawdat, "Requested convergence on RMS density matrix=")), n = 1L) %>%
     dplyr::mutate(rawdat = stringr::str_extract(rawdat, "matrix=\\d\\.\\d\\d..\\d\\d")) %>%
     dplyr::mutate(rawdat = as.numeric(stringr::str_replace(stringr::str_trim(stringr::str_extract(rawdat, "\\d\\.\\d\\d..\\d\\d")), "D", "E")))
-    
+
   Glog <- Glog %>%
     filter(stringr::str_detect(rawdat, "RMSDP=") |
-             stringr::str_detect(rawdat, " Cycle   1  ")) %>%
+      stringr::str_detect(rawdat, " Cycle   1  ")) %>%
     dplyr::mutate(rowid = dplyr::row_number()) %>%
     dplyr::mutate(rawdat = stringr::str_trim(rawdat))
-  
-  index <- filter(Glog, stringr::str_detect(rawdat , "^Cycle")) %>%
+
+  index <- filter(Glog, stringr::str_detect(rawdat, "^Cycle")) %>%
     dplyr::select(rowid) %>%
     tibble::add_row(rowid = nrow(Glog))
-  
+
   Glog <- Glog %>%
     dplyr::mutate(
       RMSDP = stringr::str_extract(rawdat, "RMSDP=\\d\\.\\d\\d..\\d\\d"),
@@ -65,6 +65,6 @@ OptiSCFMonitorAsWholeTibble <- function(directory) {
     dplyr::ungroup() %>%
     dplyr::filter(!is.na(RMSDP)) %>%
     dplyr::select(-rowid)
-  
-  return(list(Glog,ConverStandard$rawdat[[1]]))
+
+  return(list(Glog, ConverStandard$rawdat[[1]]))
 }
