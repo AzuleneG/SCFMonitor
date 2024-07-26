@@ -43,5 +43,5 @@ This is a basic example which shows how to monitor a SCF convergence process:
   OptiConvergenceMonitor(SCFMonitorExample())
 ```
 
-When using with the real log files, please replace `SCFMonitorExample()` to the directory of the .log file. For example, `"~/GaussianJobs/opti/job.log"`
+When using with the real log files, please replace `SCFMonitorExample()` to the directory of the .log file. For example, `"~/GaussianJobs/opti/job.log"` or `"C:\GaussianJobs\opti\job.log"`
 

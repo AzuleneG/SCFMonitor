@@ -62,4 +62,4 @@ process:
 
 When using with the real log files, please replace `SCFMonitorExample()`
 to the directory of the .log file. For example,
-`"~/GaussianJobs/opti/job.log"`
+`"~/GaussianJobs/opti/job.log"` or `"C:\GaussianJobs\opti\job.log"`
