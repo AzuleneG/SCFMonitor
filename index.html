@@ -121,7 +121,9 @@
 </h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/OptiConvergenceMonitor.html">OptiConvergenceMonitor</a></span><span class="op">(</span><span class="fu"><a href="reference/SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-example3-1.png" width="100%"></p>
+<p><img src="reference/figures/README-example3-1.png" width="100%"> If the <code>.log</code> file is on sever and available through <code>https</code>, use <code><a href="https://rdrr.io/r/base/connections.html" class="external-link">url()</a></code> to implement <code>SCFMonitor</code> like doing so on the files in the drive.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/MultipleRoundOptiSCFIntegratedMonitor.html">MultipleRoundOptiSCFIntegratedMonitor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/connections.html" class="external-link">url</a></span><span class="op">(</span><span class="st">"somwhere.com/someguy/calculations/xxx.log"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 </div>
