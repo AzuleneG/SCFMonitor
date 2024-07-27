@@ -20,6 +20,11 @@ files remotely using with `rbase::url()`. This software is a suitcase
 for saving time and energy for the researchers, supporting multiple
 versions of Gaussian.
 
+SCF monitor works for the `.log` files of the jobs that is still under
+calculation. `SCFMonitor` reads the convergence standard of SCF and
+optimization jobs automatically, adapting keywords like
+`SCF=conver=6  IOp(8/117=-99) IOp(7/127=-99)` or `opt=loose`.
+
 ## Installation
 
 You can install the development version of SCFMonitor from
@@ -30,38 +35,68 @@ You can install the development version of SCFMonitor from
 devtools::install_github("AzuleneG/SCFMonitor")
 ```
 
-## Example
+## Function and Example
 
-This is a basic example which shows how to monitor a SCF convergence
-process:
+**When using with the log files stored on your hard drive, please
+replace `SCFMonitorExample()` to the directory of the .log file. For
+example, `"~/GaussianJobs/opti/job.log"` or
+`"C:\GaussianJobs\opti\job.log"`**
+
+**ADD `#p` in the keyword of `.gjf` files to make sure specific
+information of SCF calculation is printed in the `.log` files.**
+Otherwise it won’t work properly!
+
+### 1.Monitor the SCF calculations
+
+To check the SCF process of a Gaussian job, use
+`MultipleRoundOptiSCFIntegratedMonitor()`. It works both for the jobs
+with multiple rounds of SCF calculation and that only include one round
+of SCF.
+
+To show the SCF convergence process of a directed `opti` job’s round,
+use `SingleRoundOptiSCFIntegratedMonitor()` instead.
 
 ``` r
 library(SCFMonitor)
 
-# Generate the plots
 MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample())
 #> Warning: Removed 1 row containing missing values or values outside the scale range
 #> (`geom_line()`).
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example1-1.png" width="100%" />
+
+``` r
+#showing the information of all the rounds
+
+SingleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 5)
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_line()`).
+```
+
+<img src="man/figures/README-example1-2.png" width="100%" />
+
+``` r
+#show the fifth optimization cycle's SCF convergence process
+```
+
+### 2.Monitor the rounds of SCF Gaussian undergoes to meet the convergence standard.
 
 ``` r
 OptiSCFConvergenceRoundMonitor(SCFMonitorExample())
 #> `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-#> Warning: Removed 1 row containing non-finite outside the scale range (`stat_smooth()`).
-#> Removed 1 row containing missing values or values outside the scale range
+#> Warning: Removed 1 row containing non-finite outside the scale range
+#> (`stat_smooth()`).
+#> Warning: Removed 1 row containing missing values or values outside the scale range
 #> (`geom_line()`).
 ```
 
-<img src="man/figures/README-example-2.png" width="100%" />
+<img src="man/figures/README-example2-1.png" width="100%" />
+
+### 3.Check the optimization process of a Gaussian `opt` job.
 
 ``` r
 OptiConvergenceMonitor(SCFMonitorExample())
 ```
 
-<img src="man/figures/README-example-3.png" width="100%" />
-
-When using with the real log files, please replace `SCFMonitorExample()`
-to the directory of the .log file. For example,
-`"~/GaussianJobs/opti/job.log"` or `"C:\GaussianJobs\opti\job.log"`
+<img src="man/figures/README-example3-1.png" width="100%" />
