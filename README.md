@@ -99,4 +99,10 @@ OptiSCFConvergenceRoundMonitor(SCFMonitorExample())
 OptiConvergenceMonitor(SCFMonitorExample())
 ```
 
-<img src="man/figures/README-example3-1.png" width="100%" />
+<img src="man/figures/README-example3-1.png" width="100%" /> If the
+`.log` file is on sever and available through `https`, use `url()` to
+implement `SCFMonitor` like doing so on the files in the drive.
+
+``` r
+MultipleRoundOptiSCFIntegratedMonitor(url("somwhere.com/someguy/calculations/xxx.log"))
+```
