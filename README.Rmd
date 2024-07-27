@@ -52,6 +52,10 @@ library(SCFMonitor)
 MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample())
 #showing the information of all the rounds
 
+MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 6)
+#showing the information of top six rounds
+
+
 SingleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 5)
 #show the fifth optimization cycle's SCF convergence process
 ```

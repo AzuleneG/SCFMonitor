@@ -69,12 +69,23 @@ MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample())
 ``` r
 #showing the information of all the rounds
 
-SingleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 5)
+MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 6)
 #> Warning: Removed 1 row containing missing values or values outside the scale range
 #> (`geom_line()`).
 ```
 
 <img src="man/figures/README-example1-2.png" width="100%" />
+
+``` r
+#showing the information of top six rounds
+
+
+SingleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 5)
+#> Warning: Removed 1 row containing missing values or values outside the scale range
+#> (`geom_line()`).
+```
+
+<img src="man/figures/README-example1-3.png" width="100%" />
 
 ``` r
 #show the fifth optimization cycle's SCF convergence process
