@@ -68,6 +68,7 @@
 <!-- badges: start -->
 
 <p>The goal of SCFMonitor is to enable <strong>Gaussian</strong> the quantum chemistry calculation software users to easily read the Gaussian .log files and monitor the SCF convergence and geometry optimization process with little effort and clear, beautiful and clean outputs. It can generate graphs using tidyverse to let users check SCF convergence and geometry optimization process real time. The software supports processing .log files remotely using with <code>rbase::url()</code>. This software is a suitcase for saving time and energy for the researchers, supporting multiple versions of Gaussian.</p>
+<p>SCF monitor works for the <code>.log</code> files of the jobs that is still under calculation. <code>SCFMonitor</code> reads the convergence standard of SCF and optimization jobs automatically, adapting keywords like <code>SCF=conver=6  IOp(8/117=-99) IOp(7/127=-99)</code> or <code>opt=loose</code>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -77,28 +78,51 @@
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"AzuleneG/SCFMonitor"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="function-and-example">Function and Example<a class="anchor" aria-label="anchor" href="#function-and-example"></a>
 </h2>
-<p>This is a basic example which shows how to monitor a SCF convergence process:</p>
+<p><strong>When using with the log files stored on your hard drive, please replace <code><a href="reference/SCFMonitorExample.html">SCFMonitorExample()</a></code> to the directory of the .log file. For example, <code>"~/GaussianJobs/opti/job.log"</code> or <code>"C:\GaussianJobs\opti\job.log"</code></strong></p>
+<p><strong>ADD <code>#p</code> in the keyword of <code>.gjf</code> files to make sure specific information of SCF calculation is printed in the <code>.log</code> files.</strong> Otherwise it won’t work properly!</p>
+<div class="section level3">
+<h3 id="id_1monitor-the-scf-calculations">1.Monitor the SCF calculations<a class="anchor" aria-label="anchor" href="#id_1monitor-the-scf-calculations"></a>
+</h3>
+<p>To check the SCF process of a Gaussian job, use <code><a href="reference/MultipleRoundOptiSCFIntegratedMonitor.html">MultipleRoundOptiSCFIntegratedMonitor()</a></code>. It works both for the jobs with multiple rounds of SCF calculation and that only include one round of SCF.</p>
+<p>To show the SCF convergence process of a directed <code>opti</code> job’s round, use <code><a href="reference/SingleRoundOptiSCFIntegratedMonitor.html">SingleRoundOptiSCFIntegratedMonitor()</a></code> instead.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AzuleneG/SCFMonitor" class="external-link">SCFMonitor</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Generate the plots</span></span>
 <span><span class="fu"><a href="reference/MultipleRoundOptiSCFIntegratedMonitor.html">MultipleRoundOptiSCFIntegratedMonitor</a></span><span class="op">(</span><span class="fu"><a href="reference/SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: Removed 1 row containing missing values or values outside the scale range</span></span>
 <span><span class="co">#&gt; (`geom_line()`).</span></span></code></pre></div>
-<p><img src="reference/figures/README-example-1.png" width="100%"></p>
+<p><img src="reference/figures/README-example1-1.png" width="100%"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#showing the information of all the rounds</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/SingleRoundOptiSCFIntegratedMonitor.html">SingleRoundOptiSCFIntegratedMonitor</a></span><span class="op">(</span><span class="fu"><a href="reference/SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Removed 1 row containing missing values or values outside the scale range</span></span>
+<span><span class="co">#&gt; (`geom_line()`).</span></span></code></pre></div>
+<p><img src="reference/figures/README-example1-2.png" width="100%"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#show the fifth optimization cycle's SCF convergence process</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_2monitor-the-rounds-of-scf-gaussian-undergoes-to-meet-the-convergence-standard">2.Monitor the rounds of SCF Gaussian undergoes to meet the convergence standard.<a class="anchor" aria-label="anchor" href="#id_2monitor-the-rounds-of-scf-gaussian-undergoes-to-meet-the-convergence-standard"></a>
+</h3>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/OptiSCFConvergenceRoundMonitor.html">OptiSCFConvergenceRoundMonitor</a></span><span class="op">(</span><span class="fu"><a href="reference/SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula = 'y ~ x'</span></span>
-<span><span class="co">#&gt; Warning: Removed 1 row containing non-finite outside the scale range (`stat_smooth()`).</span></span>
-<span><span class="co">#&gt; Removed 1 row containing missing values or values outside the scale range</span></span>
+<span><span class="co">#&gt; Warning: Removed 1 row containing non-finite outside the scale range</span></span>
+<span><span class="co">#&gt; (`stat_smooth()`).</span></span>
+<span><span class="co">#&gt; Warning: Removed 1 row containing missing values or values outside the scale range</span></span>
 <span><span class="co">#&gt; (`geom_line()`).</span></span></code></pre></div>
-<p><img src="reference/figures/README-example-2.png" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<p><img src="reference/figures/README-example2-1.png" width="100%"></p>
+</div>
+<div class="section level3">
+<h3 id="id_3check-the-optimization-process-of-a-gaussian-opt-job">3.Check the optimization process of a Gaussian <code>opt</code> job.<a class="anchor" aria-label="anchor" href="#id_3check-the-optimization-process-of-a-gaussian-opt-job"></a>
+</h3>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/OptiConvergenceMonitor.html">OptiConvergenceMonitor</a></span><span class="op">(</span><span class="fu"><a href="reference/SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-example-3.png" width="100%"></p>
-<p>When using with the real log files, please replace <code><a href="reference/SCFMonitorExample.html">SCFMonitorExample()</a></code> to the directory of the .log file. For example, <code>"~/GaussianJobs/opti/job.log"</code> or <code>"C:\GaussianJobs\opti\job.log"</code></p>
+<p><img src="reference/figures/README-example3-1.png" width="100%"></p>
+</div>
 </div>
 </div>
   </div>
