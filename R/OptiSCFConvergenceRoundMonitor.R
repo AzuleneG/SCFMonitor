@@ -2,6 +2,7 @@
 #'
 #' This function reads a log file automatically and generate a plot showing the steps it takes to reach SCF convergence for each optimization process.
 #' @param directory A string vector describing the directory of the Gaussian log file.
+#' @returns No return value, called for side effects
 #' @importFrom ggplot2 ggplot aes geom_line geom_smooth theme_minimal
 #' @export
 #' @examples

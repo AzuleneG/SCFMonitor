@@ -6,6 +6,9 @@
 \arguments{
 \item{directory}{A string vector describing the directory of the Gaussian log file.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 This function reads a log file automatically and generate a plot showing the steps it takes to reach SCF convergence for each optimization process.
 }

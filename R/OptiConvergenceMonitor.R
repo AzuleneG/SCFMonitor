@@ -2,6 +2,7 @@
 #'
 #' This function reads a log file automatically and shows the optimization convergence process of it by generating line plots
 #' @param directory A string vector describing the directory of the Gaussian log file.
+#' @returns No return value, called for side effects
 #' @importFrom readr read_file
 #' @importFrom stringr str_split str_detect str_trim str_replace str_sub
 #' @importFrom tidyselect starts_with

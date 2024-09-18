@@ -5,6 +5,7 @@
 #' @param SCFconver A numeric vector showing the SCF convergence requirement read from the gaussian .log file.
 #' @param BOT A numeric vector describing the starting optimization round for plotting
 #' @param TOP A numeric vector describing the ending optimization round for plotting
+#' @returns No return value, called for side effects
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr mutate filter
 #' @importFrom stringr str_replace

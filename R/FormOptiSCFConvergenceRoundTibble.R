@@ -2,7 +2,7 @@
 #'
 #' This function outputs a tibble showing each the number of SCF rounds applied in each optimization cycle and outputs it as a tibble.
 #' @param directory A string vector describing the directory of the Gaussian log file.
-#' @return A tibble countain two columns, describing each optimization rounds and the number of SCF rounds it undergoes until convergence.
+#' @returns A tibble countain two columns, describing each optimization rounds and the number of SCF rounds it undergoes until convergence.
 #' @importFrom readr read_file
 #' @importFrom stringr str_split str_detect str_trim
 #' @importFrom tidyselect starts_with

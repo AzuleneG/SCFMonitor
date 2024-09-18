@@ -31,8 +31,8 @@ You can install the development version of SCFMonitor from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("AzuleneG/SCFMonitor")
+install.packages("SCFMonitor")
+library(SCFMonitor)
 ```
 
 ## Function and Example

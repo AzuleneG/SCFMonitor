@@ -8,6 +8,9 @@
 
 \item{SCFconver}{A numeric vector showing the SCF convergence requirement read from the gaussian .log file.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 An internal function plots the generated single-round SCF convergence tibble
 }
@@ -17,7 +20,7 @@ library(stringr)
 library(ggplot2)
 library(tidyr)
 
-temp_dat = OptiSCFMonitorAsList(SCFMonitorExample())
+temp_dat <- OptiSCFMonitorAsList(SCFMonitorExample())
 SingleSCFplotting(temp_dat[[1]][[5]], SCFconver = -log10(temp_dat[[2]]))
 
 }

@@ -11,11 +11,14 @@ SingleRoundOptiSCFIntegratedMonitor(directory, optiround)
 
 \item{optiround}{A numeric vector deciding which SCF convergence process will be shown in the diagram. etc. input 5 for the 5th round of optimization. If it's not an optimization job than enter 1 for acquiring the only one.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 This function reads a log file automatically and shows the SCF convergence process of a single round of optimization by generating line plots
 }
 \examples{
 
-SingleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(),5)
+SingleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 5)
 
 }

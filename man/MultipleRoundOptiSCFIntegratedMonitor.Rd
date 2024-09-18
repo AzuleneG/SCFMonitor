@@ -8,12 +8,15 @@
 
 \item{top_rounds}{A numeric vector deciding which SCF convergence process will be shown in the diagram. etc. input 5 for the newest 5 rounds of optimization. Enter -1 for showing all the processes.}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 This function reads a log file automatically and shows the SCF convergence process of it by generating line plots
 }
 \examples{
 
-MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(),-1)
-MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(),5)
+MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), -1)
+MultipleRoundOptiSCFIntegratedMonitor(SCFMonitorExample(), 5)
 
 }

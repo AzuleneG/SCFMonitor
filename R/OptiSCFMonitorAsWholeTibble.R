@@ -2,7 +2,7 @@
 #'
 #' This function outputs a tibble containing the data of each rounds of SCF calculation labeled with the optimization round it's in (if it's a optimization job, otherwise it will be only 1)
 #' @param directory A string vector describing the directory of the Gaussian log file.
-#' @return A list containing two elements. The first one is a tibble containing the SCF data of every rounds labeled with the optimization steps they are in. The second element is a numeric vector that refers to the SCF convergence standard.
+#' @returns A list containing two elements. The first one is a tibble containing the SCF data of every rounds labeled with the optimization steps they are in. The second element is a numeric vector that refers to the SCF convergence standard.
 #' @importFrom readr read_file
 #' @importFrom stringr str_split str_detect str_extract str_replace str_trim
 #' @importFrom utils head

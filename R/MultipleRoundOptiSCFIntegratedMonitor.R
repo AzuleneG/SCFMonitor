@@ -3,6 +3,7 @@
 #' This function reads a log file automatically and shows the SCF convergence process of it by generating line plots
 #' @param directory A string vector describing the directory of the Gaussian log file.
 #' @param top_rounds A numeric vector deciding which SCF convergence process will be shown in the diagram. etc. input 5 for the newest 5 rounds of optimization. Enter -1 for showing all the processes.
+#' @returns No return value, called for side effects
 #' @export
 #' @examples
 #'

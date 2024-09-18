@@ -20,7 +20,7 @@ This function is a internal function that directs the optimization round of a SC
 \examples{
 library(tibble)
 
-example_index<-tibble(rowid=c(1,30,130))
-DirectingOptiRounds(33,example_index)
+example_index <- tibble(rowid = c(1, 30, 130))
+DirectingOptiRounds(33, example_index)
 
 }

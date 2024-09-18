@@ -2,7 +2,7 @@
 #'
 #' This function reads a Gaussian .log file and outputs a list of tibbles, each of which is the SCF Data of a optimization step.
 #' @param directory A string vector describing the directory of the Gaussian log file.
-#' @return A list of lists. First lists is a list of tibble, each element in the list refers to a tibble recording the SCF Data of a optimization step. The second list only have one element that is a numeric vector refering to the SCF convergence requirement read from log file.
+#' @returns A list of lists. First lists is a list of tibble, each element in the list refers to a tibble recording the SCF Data of a optimization step. The second list only have one element that is a numeric vector refering to the SCF convergence requirement read from log file.
 #' @importFrom readr read_file
 #' @importFrom stringr str_split str_detect str_trim str_replace str_extract
 #' @importFrom tidyselect starts_with

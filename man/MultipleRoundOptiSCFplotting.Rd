@@ -12,6 +12,9 @@
 
 \item{TOP}{A numeric vector describing the ending optimization round for plotting}
 }
+\value{
+No return value, called for side effects
+}
 \description{
 An internal function plots the generated SCF convergence tibble
 }
@@ -21,9 +24,11 @@ library(stringr)
 library(ggplot2)
 library(tidyr)
 
-temp_dat = OptiSCFMonitorAsWholeTibble(SCFMonitorExample())
-MultipleRoundOptiSCFplotting(temp_dat[[1]], SCFconver = -log10(temp_dat[[2]]), 
-BOT = 10, 
-TOP = 15 )
+temp_dat <- OptiSCFMonitorAsWholeTibble(SCFMonitorExample())
+MultipleRoundOptiSCFplotting(temp_dat[[1]],
+  SCFconver = -log10(temp_dat[[2]]),
+  BOT = 10,
+  TOP = 15
+)
 
 }
