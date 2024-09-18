@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SCFMonitor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.3.1000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.5</span>
       </span>
     </div>
 
@@ -65,15 +65,19 @@
 <dd><p>A numeric vector deciding which SCF convergence process will be shown in the diagram. etc. input 5 for the newest 5 rounds of optimization. Enter -1 for showing all the processes.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>No return value, called for side effects</p>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">MultipleRoundOptiSCFIntegratedMonitor</span><span class="op">(</span><span class="fu"><a href="SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">MultipleRoundOptiSCFIntegratedMonitor</span><span class="op">(</span><span class="fu"><a href="SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 1 row containing missing values or values outside the scale range</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> (`geom_line()`).</span>
 <span class="r-plt img"><img src="MultipleRoundOptiSCFIntegratedMonitor-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">MultipleRoundOptiSCFIntegratedMonitor</span><span class="op">(</span><span class="fu"><a href="SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">MultipleRoundOptiSCFIntegratedMonitor</span><span class="op">(</span><span class="fu"><a href="SCFMonitorExample.html">SCFMonitorExample</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">5</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 1 row containing missing values or values outside the scale range</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> (`geom_line()`).</span>
 <span class="r-plt img"><img src="MultipleRoundOptiSCFIntegratedMonitor-2.png" alt="" width="700" height="433"></span>
