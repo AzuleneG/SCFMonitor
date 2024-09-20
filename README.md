@@ -28,12 +28,12 @@ optimization jobs automatically, adapting keywords like
 
 ## Installation
 
-You can install the development version of SCFMonitor from
-[GitHub](https://github.com/) with:
+You can install the package from CRAN using `install.packages()` or the
+development version from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("SCFMonitor")
-# install_github("AzuleneG/SCFMonitor") dev. version
+# install_github("AzuleneG/SCFMonitor")
 
 library(SCFMonitor)
 ```
