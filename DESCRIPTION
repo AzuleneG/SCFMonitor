@@ -1,6 +1,6 @@
 Package: SCFMonitor
 Title: Clear Monitor and Graphing Software Processing Gaussian .log File
-Version: 0.3.5
+Version: 0.3.5.9000
 Authors@R: 
     person("Pengjun", "Guo", , "pengjun.guo@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0007-2717-0519"))
